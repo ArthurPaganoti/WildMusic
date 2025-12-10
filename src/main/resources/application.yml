@@ -3,7 +3,7 @@ spring:
     name: Spotify
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/${DB_NAME:spotify}
+    url: jdbc:postgresql://198.89.99.206:5432/${DB_NAME:spotify}
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:root}
 
@@ -20,9 +20,9 @@ spring:
           batch_size: 30
   data:
     redis:
-      host: localhost
+      host: 198.89.99.206
       port: 6379
-      database: 4
+      database: 1
   cache:
     type: redis
 
@@ -32,45 +32,45 @@ spring:
     locations: classpath:db/migration
 
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username: # Your Email
-    password: # Your Password
+    host: 198.89.99.206
+    port: 1025
+    username: ""
+    password: ""
     properties:
       mail:
         smtp:
-          auth: true
+          auth: false
           starttls:
-            enable: true
-            required: true
+            enable: false
+            required: false
           ssl:
             enable: false
         transport:
           protocol: smtp
 
 jwt:
-  secret: # Your Secret Key
-  expiration: 3600
+  secret: ${JWT_SECRET:DfkvlkG+FbGHGsQGbrvuBIa1AMADfTubYJmaOV1pmjNsjwRT95aSg00owbF/N5WxK1btmcXLJtD7b63J2ThdGQ==}
+  expiration: ${JWT_EXPIRATION:3600}
 
 system:
-  secret: # Your Secret Key
+  secret: ${SYSTEM_SECRET:4vINmku10CN4zYW2nZeF}
 
 app:
   email:
-    from: # Your email
-    fromName: # Your name
+    from: ${APP_EMAIL_FROM:paganotiarthur@gmail.com}
+    fromName: ${APP_EMAIL_FROM_NAME:Spotify}
   password-reset:
-    expiration-hours: 24
+    expiration-hours: ${APP_PASSWORD_RESET_EXPIRATION_HOURS:24}
   frontend:
-    url: http://localhost:3000
+    url: ${APP_FRONTEND_URL:http://localhost:3000}
 
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
 
 imagekit:
-  url-endpoint: # Your Url Endpoint
-  private-key: # Your Private Key
-  public-key: # Your Public Key
+  url-endpoint: ${IMAGEKIT_URL_ENDPOINT:https://ik.imagekit.io/atmw7nuvq}
+  private-key: ${IMAGEKIT_PRIVATE_KEY:private_oVL0WTNqRsaIjdFVTjokvxA5dzI=}
+  public-key: ${IMAGEKIT_PUBLIC_KEY:public_B8xbkgRWuInYUuiZzSJh7YztqZk=}
 
 management:
   prometheus:
@@ -85,4 +85,4 @@ logging:
 
 youtube:
   api:
-    key: ${YOUTUBE_API_KEY:} # Your YouTube API Key
+    key: ${YOUTUBE_API_KEY:AIzaSyCM8oxFA12IHJySqbowjrtEBoy3fJW695A}
