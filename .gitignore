@@ -72,3 +72,4 @@ wild-music-fc969-firebase-adminsdk-fbsvc-*.json
 # Environment variables and secrets
 .env
 src/main/resources/application-local.yml
+**/application.yml
